@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f4ef">
+  <meta name="theme-color" content="#1e3a5c">
   <meta name="description" content="The portfolio of Avery Hamilton.">
   <title>Avery Hamilton | Portfolio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
 
     :root {
-      color-scheme: light;
-      --paper: #f5f4ef;
-      --ink: #17211d;
-      --muted: #65716b;
-      --line: #d8dcd4;
+      color-scheme: dark;
+      --bg: #1e3a5c;          /* main blue background */
+      --bg-deep: #172f4b;     /* darker blue for the projects section */
+      --card-alt: #1c3757;    /* alternating project card */
+      --ink: #d3d8de;         /* main grey text */
+      --heading: #e4e7ea;     /* slightly lighter grey for headings */
+      --muted: #9aa6b2;       /* secondary grey text */
+      --line: #34516f;        /* borders and dividers */
       --green: #c8f169;
       --coral: #e77b63;
-      --blue: #497c8c;
+      --accent: #9cc3e2;      /* light blue highlight */
       --mono: 'DM Mono', monospace;
       --sans: 'Manrope', sans-serif;
     }
@@ -28,7 +31,7 @@
 
     body {
       margin: 0;
-      background: var(--paper);
+      background: var(--bg);
       color: var(--ink);
       font-family: var(--sans);
       -webkit-font-smoothing: antialiased;
@@ -50,12 +53,13 @@
     }
 
     .wordmark {
+      color: var(--heading);
       font-size: 14px;
       font-weight: 800;
       text-decoration: none;
     }
 
-    .wordmark span { color: var(--blue); }
+    .wordmark span { color: var(--green); }
 
     .nav-links {
       display: flex;
@@ -67,7 +71,7 @@
     }
 
     .nav-links a { text-decoration: none; }
-    .nav-links a:hover { text-decoration: underline; text-underline-offset: 5px; }
+    .nav-links a:hover { color: var(--green); text-decoration: underline; text-underline-offset: 5px; }
 
     .hero {
       display: grid;
@@ -91,18 +95,19 @@
     h1 {
       max-width: 720px;
       margin: 23px 0 22px;
+      color: var(--heading);
       font-size: clamp(48px, 7vw, 82px);
       font-weight: 600;
       line-height: .99;
       letter-spacing: 0;
     }
 
-    h1 em { color: var(--blue); font-style: normal; }
+    h1 em { color: var(--accent); font-style: normal; }
 
     .statement {
       max-width: 620px;
       margin: 0;
-      color: #46534c;
+      color: var(--ink);
       font-size: 17px;
       line-height: 1.8;
     }
@@ -114,6 +119,7 @@
       margin-top: 30px;
       padding: 13px 17px;
       background: var(--green);
+      color: #17211d;
       font-size: 13px;
       font-weight: 800;
       text-decoration: none;
@@ -133,8 +139,9 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background: var(--blue);
-      color: var(--paper);
+      background: var(--bg-deep);
+      border: 1px solid var(--line);
+      color: var(--ink);
       text-align: center;
     }
 
@@ -142,7 +149,7 @@
       position: absolute;
       width: 210px;
       height: 210px;
-      border: 1px solid rgb(245 244 239 / 38%);
+      border: 1px solid rgb(156 195 226 / 35%);
       border-radius: 50%;
       content: '';
     }
@@ -152,6 +159,7 @@
 
     .portrait-initials {
       z-index: 1;
+      color: var(--heading);
       font-size: 78px;
       font-weight: 500;
       line-height: 1;
@@ -160,6 +168,7 @@
     .portrait-note {
       z-index: 1;
       margin: 14px 0 0;
+      color: var(--muted);
       font-family: var(--mono);
       font-size: 10px;
       text-transform: uppercase;
@@ -169,7 +178,7 @@
       position: absolute;
       top: 13px;
       right: 13px;
-      color: var(--paper);
+      color: var(--muted);
       font-family: var(--mono);
       font-size: 10px;
     }
@@ -200,6 +209,7 @@
 
     h2 {
       margin: 0;
+      color: var(--heading);
       font-size: clamp(30px, 4vw, 44px);
       font-weight: 600;
       line-height: 1.12;
@@ -218,18 +228,23 @@
     .skills-list li {
       padding: 10px 13px;
       border: 1px solid var(--line);
+      background: rgb(255 255 255 / 4%);
       font-size: 13px;
       font-weight: 600;
     }
 
-    .projects-section { background: var(--ink); color: var(--paper); }
-    .projects-section .section-kicker { color: #aeb9b1; }
+    .projects-section {
+      margin: 0 -32px;
+      padding-right: 32px;
+      padding-left: 32px;
+      background: var(--bg-deep);
+    }
     .projects-section .section-heading { align-items: end; }
 
     .project-tabs {
       display: flex;
       gap: 8px;
-      border-bottom: 1px solid #526058;
+      border-bottom: 1px solid var(--line);
       margin: 0 0 27px;
     }
 
@@ -238,7 +253,7 @@
       padding: 14px 18px;
       border: 0;
       background: transparent;
-      color: #aeb9b1;
+      color: var(--muted);
       cursor: pointer;
       font: 500 12px var(--mono);
       text-transform: uppercase;
@@ -265,21 +280,29 @@
       flex-direction: column;
       align-items: flex-start;
       padding: 26px;
-      border: 1px solid #435047;
+      border: 1px solid var(--line);
       transition: border-color .2s ease, transform .2s ease;
     }
 
     .project-card:hover { transform: translateY(-3px); border-color: var(--green); }
-    .project-card:nth-child(2n) { background: #202d26; }
-    .project-card-top { display: flex; width: 100%; justify-content: space-between; color: #aeb9b1; }
+    .project-card:nth-child(2n) { background: var(--card-alt); }
+    .project-card-top { display: flex; width: 100%; justify-content: space-between; color: var(--muted); }
     .project-index { color: var(--green); }
 
-    .project-card h3 { margin: 34px 0 10px; font-size: 22px; font-weight: 600; }
-    .project-card p { max-width: 410px; margin: 0; color: #bdc6bf; font-size: 13px; line-height: 1.7; }
+    .project-card h3 { margin: 34px 0 10px; color: var(--heading); font-size: 22px; font-weight: 600; }
+    .project-card p { max-width: 410px; margin: 0; color: var(--ink); font-size: 13px; line-height: 1.7; }
 
     .project-links { display: flex; gap: 18px; margin-top: auto; padding-top: 22px; }
-    .project-links span { color: var(--green); font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
-    .project-links span::after { padding-left: 5px; content: '\2197'; }
+    .project-links a, .project-links span {
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .project-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .project-links span { opacity: .55; }
+    .project-links a::after, .project-links span::after { padding-left: 5px; content: '\2197'; }
 
     [hidden] { display: none !important; }
 
@@ -292,7 +315,7 @@
 
     .contact-content h2 { max-width: 590px; }
     .contact-content p { color: var(--muted); font-size: 14px; line-height: 1.7; }
-    .contact-content a { color: var(--ink); font-weight: 700; text-underline-offset: 4px; }
+    .contact-content a { color: var(--green); font-weight: 700; text-underline-offset: 4px; }
 
     footer {
       display: flex;
@@ -317,6 +340,7 @@
       .portrait-initials { font-size: 60px; }
       h1 { font-size: clamp(46px, 13vw, 68px); }
       .section { padding: 56px 0 62px; }
+      .projects-section { margin: 0 -18px; padding-right: 18px; padding-left: 18px; }
       .section-heading, .contact-section { grid-template-columns: 1fr; gap: 18px; }
       .skills-list { grid-column: 1; }
       .project-grid { grid-template-columns: 1fr; }
@@ -340,10 +364,12 @@
     </header>
 
     <main id="top">
+      <!-- Personal Statement -->
       <section class="hero" aria-labelledby="intro-title">
         <div class="hero-copy">
           <div class="eyebrow">Portfolio / 2026</div>
           <h1 id="intro-title">Hello, I’m<br><em>Avery Hamilton.</em></h1>
+          <!-- TODO: Replace with your one-sentence personal statement -->
           <p class="statement">I&#39;m a [your professional title] who brings [your strongest value] to every project.</p>
           <a class="hero-link" href="#projects">Explore my work <span aria-hidden="true">&darr;</span></a>
         </div>
@@ -357,10 +383,12 @@
         </div>
       </section>
 
+      <!-- 1. Skills -->
       <section class="section" id="skills" aria-labelledby="skills-title">
         <div class="section-heading">
-          <div class="section-kicker">01 / Capabilities</div>
+          <div class="section-kicker">01 / Skills</div>
           <h2 id="skills-title">Skills I bring<br>to the table.</h2>
+          <!-- TODO: Replace each item with a real skill -->
           <ul class="skills-list" aria-label="Professional skills">
             <li>[Technical skill]</li>
             <li>[Technical skill]</li>
@@ -372,9 +400,10 @@
         </div>
       </section>
 
+      <!-- 2. Projects -->
       <section class="section projects-section" id="projects" aria-labelledby="projects-title">
         <div class="section-heading">
-          <div class="section-kicker">02 / Selected work</div>
+          <div class="section-kicker">02 / Projects</div>
           <h2 id="projects-title">A few things<br>I&#39;ve worked on.</h2>
         </div>
 
@@ -386,16 +415,20 @@
         <div id="panel-featured" role="tabpanel" aria-labelledby="tab-featured" tabindex="0">
           <div class="project-grid">
             <article class="project-card">
-              <div class="project-card-top"><span class="project-index">Project / 01</span><span class="section-kicker">[Category]</span></div>
-              <h3>[Project title]</h3>
-              <p>In one or two sentences, describe the challenge, what you created, and the result.</p>
-              <div class="project-links" aria-label="Project links to add"><span>Code link</span><span>Live demo</span></div>
+              <div class="project-card-top"><span class="project-index">Project / 01</span><span class="section-kicker">Website</span></div>
+              <h3>Quirks Landscaping</h3>
+              <p>A website for Quirks Landscaping. [Add a sentence or two about what you built, the tools you used, and the result.]</p>
+              <div class="project-links">
+                <a href="https://github.com/averyhamilton124/Quirks-Landscaping" target="_blank" rel="noopener">Code</a>
+                <a href="https://averyhamilton124.github.io/Quirks-Landscaping/" target="_blank" rel="noopener">Live demo</a>
+              </div>
             </article>
             <article class="project-card">
               <div class="project-card-top"><span class="project-index">Project / 02</span><span class="section-kicker">[Category]</span></div>
               <h3>[Project title]</h3>
               <p>Share what made this project meaningful and the skills or tools you used.</p>
-              <div class="project-links" aria-label="Project links to add"><span>Code link</span><span>Live demo</span></div>
+              <!-- TODO: Swap the spans for <a href="..."> links like Project 01 -->
+              <div class="project-links"><span>Code link</span><span>Live demo</span></div>
             </article>
           </div>
         </div>
@@ -406,7 +439,8 @@
               <div class="project-card-top"><span class="project-index">Project / 03</span><span class="section-kicker">[Category]</span></div>
               <h3>[Project title]</h3>
               <p>Describe another relevant project, your contribution, and the impact it made.</p>
-              <div class="project-links" aria-label="Project links to add"><span>Code link</span><span>Live demo</span></div>
+              <!-- TODO: Swap the spans for <a href="..."> links like Project 01 -->
+              <div class="project-links"><span>Code link</span><span>Live demo</span></div>
             </article>
           </div>
         </div>
@@ -416,6 +450,7 @@
         <div class="section-kicker">03 / Say hello</div>
         <div class="contact-content">
           <h2 id="contact-title">Let&#39;s make something that matters.</h2>
+          <!-- TODO: Replace with your email -->
           <p>Have a role or project in mind? <a href="mailto:your.email@example.com">Get in touch</a>.</p>
         </div>
       </section>
